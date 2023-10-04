@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroes legend</title>
+</head>
+<body>
+<h1>Heroes Legends</h1>
+    <label for="nome">Digite o nome do seu herói: </label>
+    <input type="text" id="nome" placeholder="Nome do seu Herói">
+    <br>
+    <button onclick="confirmar()">Confirmar</button>
+    <button onclick="ganahrxp()">Ganhar 500Xp</button>
+    <button onclick="perderxp()">Perder 500Xp</button>
+    <script>
+        let confirm = false
+        let xpDoHeroi = 0
+        let imputName = document.getElementById("nome")
+        let nomeDoHeroi = imputName.value
+        function ganahrxp(){
+            xpDoHeroi += 500
+
+        }
+            if (xpDoHeroi > 0){
+            function perderxp(){
+                xpDoHeroi -=500
+            }
+        }
+     function confirmar(){
+        confirm = true
+
+        
+        while (confirm == true) {
+            if (xpDoHeroi <= 1000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Ferro!")
+                confirm = false
+            
+            }
+            else if (xpDoHeroi > 1000 && xpDoHeroi <= 2000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Bronze!")
+                confirm = false
+            }
+            else if (xpDoHeroi > 2000 && xpDoHeroi <= 5000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Prata!")
+                confirm = false
+            }
+            else if (xpDoHeroi > 6000 && xpDoHeroi <= 7000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Ouro!")
+                confirm = false
+            }
+            else if (xpDoHeroi > 7000 && xpDoHeroi <= 8000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Platina!")
+                confirm = false
+            }
+            else if (xpDoHeroi > 8000 && xpDoHeroi <= 9000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Ascendente!")
+                confirm = false
+            }
+            else if (xpDoHeroi > 9000 && xpDoHeroi <= 10000) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Imortal!")
+                confirm = false
+            }
+            else if (xpDoHeroi > 10000 ) {
+                alert("o heroi " + nomeDoHeroi + "está no ranking Radiante!")
+                confirm = false
+            }
+        }
+     } 
+    </script>
+
+
+
+
+
+
+</body>
+</html>
