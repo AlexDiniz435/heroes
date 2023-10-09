@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Calculadora de Nível</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: chartreuse;
+            text-shadow: 4px 4px 8px #04db28;
+            font-style: italic;
+        }
+        #resultado {
+            font-size: 20px;
+            margin: 20px;
+            color: chartreuse;
+            text-shadow: 4px 4px 8px #04db28;
+            font-style: italic;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Nível</h1>
+    <form id="calculadoraForm">
+        <label for="vitorias">Vitórias: </label>
+        <input type="number" id="vitorias" required>
+        <br>
+        <label for="derrotas">Derrotas: </label>
+        <input type="number" id="derrotas" required>
+        <br>
+        <button type="button" id="calcularBtn">Calcular Nível</button>
+    </form>
+    <p id="resultado"></p>
+    <script>
+        function calcularNivel(vitorias, derrotas) {
+            const saldoVitorias = vitorias - derrotas;
+            let nivel = null;
+
+            if (vitorias < 10) {
+                nivel = "Ferro";
+            } else if (vitorias >= 11 && vitorias <= 20) {
+                nivel = "Bronze";
+            } else if (vitorias >= 21 && vitorias <= 50) {
+                nivel = "Prata";
+            } else if (vitorias >= 51 && vitorias <= 80) {
+                nivel = "Ouro";
+            } else if (vitorias >= 81 && vitorias <= 90) {
+                nivel = "Diamante";
+            } else if (vitorias >= 91 && vitorias <= 100) {
+                nivel = "Lendário";
+            } else if (vitorias >= 101) {
+                nivel = "Imortal";
+            }
+
+            const resultado = `O Herói tem um saldo de ${saldoVitorias} vitórias e está no nível de ${nivel}`;
+            return resultado;
+        }
+
+        const calcularBtn = document.getElementById('calcularBtn');
+        const resultadoElement = document.getElementById('resultado');
+
+        calcularBtn.addEventListener('click', () => {
+            const vitorias = parseInt(document.getElementById('vitorias').value);
+            const derrotas = parseInt(document.getElementById('derrotas').value);
+
+            const resultado = calcularNivel(vitorias, derrotas);
+
+            resultadoElement.textContent = resultado;
+        });
+    </script>
+</body>
+</html>
